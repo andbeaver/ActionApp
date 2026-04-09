@@ -1,12 +1,13 @@
-﻿<Window x:Class="ActionApp.Views.HomeView"
+﻿<UserControl x:Class="ActionApp.Views.HomeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActionApp.Views"
+        xmlns:vm="clr-namespace:ActionApp.ViewModels" 
         mc:Ignorable="d"
-        Title="HomeView" Height="450" Width="800">
+        Height="450" Width="800">
     <Grid>
-        
+        <TextBlock>Home Screen </TextBlock>
     </Grid>
-</Window>
+</UserControl>

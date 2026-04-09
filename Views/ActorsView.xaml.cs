@@ -16,7 +16,7 @@ namespace ActionApp.Views
     /// <summary>
     /// Interaction logic for ActorsView.xaml
     /// </summary>
-    public partial class ActorsView : Page
+    public partial class ActorsView : UserControl
     {
         public ActorsView()
         {

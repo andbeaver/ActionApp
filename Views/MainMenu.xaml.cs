@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace ActionApp.Views
 {
     /// <summary>
-    /// Interaction logic for MainMenuView.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainMenuView : Window
+    public partial class MainMenu : UserControl
     {
-        public MainMenuView()
+        public MainMenu()
         {
             InitializeComponent();
         }

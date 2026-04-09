@@ -16,7 +16,7 @@ namespace ActionApp.Views
     /// <summary>
     /// Interaction logic for DirectorsView.xaml
     /// </summary>
-    public partial class DirectorsView : Page
+    public partial class DirectorsView : UserControl
     {
         public DirectorsView()
         {
