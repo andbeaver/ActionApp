@@ -40,9 +40,6 @@ namespace ActionApp
             services.AddSingleton<ActorsViewModel>();
             services.AddSingleton<DirectorsViewModel>();
             services.AddSingleton<MoviesViewModel>();
-
-
-
         }
     }
 

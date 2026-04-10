@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActionApp.Views"
         xmlns:vm="clr-namespace:ActionApp.ViewModels" 
-        mc:Ignorable="d"
-        Height="450" Width="800">
+        mc:Ignorable="d">
     <Grid>
-        <TextBlock>Home Screen </TextBlock>
+        <TextBlock Text="Home Screen"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="48"
+                   FontWeight="Bold"/>
     </Grid>
 </UserControl>

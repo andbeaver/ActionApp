@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using ActionApp.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,6 +23,7 @@ namespace ActionApp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = ((App)Application.Current).ServiceProvider.GetService(typeof(MainViewModel));
         }
     }
 }

@@ -5,11 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ActionApp.Views"
       xmlns:vm="clr-namespace:ActionApp.ViewModels"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      >
+      mc:Ignorable="d">
 
     <Grid>
-        <TextBlock>Directors screen</TextBlock>
+        <TextBlock Text="Directors Screen"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="48"
+                   FontWeight="Bold"
+                   Foreground="Red"/>
     </Grid>
 </UserControl>

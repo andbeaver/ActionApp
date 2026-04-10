@@ -10,6 +10,20 @@
         Background="white"
         Title="ActionApp" Height="450" Width="800">
     <Grid>
-    <TextBlock> Main Window </TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Menu Section -->
+        <Border Grid.Row="0">
+            <views:MainMenu />
+        </Border>
+
+        <!-- App Content Section -->
+        <Border Grid.Row="1">
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </Border>
+
     </Grid>
 </Window>

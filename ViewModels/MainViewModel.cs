@@ -25,15 +25,14 @@ namespace ActionApp.ViewModels
         public MainViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            // Initialize with a default view model, e.g., HomeViewModel
+            // Initialize via navigation service so the navigation stack is populated
             CurrentViewModel = new HomeViewModel(navigationService);
         }
 
         public ICommand NavToHomeCommand => new RelayCommand(_ => _navigationService.NavigateTo<HomeViewModel>());
-
-        public ICommand NavToAlbumsCommand => new RelayCommand(_ => _navigationService.NavigateTo<MoviesViewModel>());
-        public ICommand NavToArtistsCommand => new RelayCommand(_ => _navigationService.NavigateTo<ActorsViewModel>());
-        public ICommand NavToTracksCommand => new RelayCommand(_ => _navigationService.NavigateTo<DirectorsViewModel>());
+        public ICommand NavToMoviesCommand => new RelayCommand(_ => _navigationService.NavigateTo<MoviesViewModel>());
+        public ICommand NavToActorsCommand => new RelayCommand(_ => _navigationService.NavigateTo<ActorsViewModel>());
+        public ICommand NavToDirectorsCommand => new RelayCommand(_ => _navigationService.NavigateTo<DirectorsViewModel>());
         public ICommand NavBackCommand => new RelayCommand(_ => _navigationService.GoBack());
         public ICommand ExitCommand => new RelayCommand(_ => System.Windows.Application.Current.Shutdown());
 

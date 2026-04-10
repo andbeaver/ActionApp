@@ -9,7 +9,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       >
 
-    <Grid>
-        <TextBlock>Actors screen</TextBlock>
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Search:" VerticalAlignment="Center" Margin="0,0,8,0" />
+            <TextBox Width="300" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding ActorsView}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Actor" Binding="{Binding PrimaryName}" Width="*" />
+                <DataGridTextColumn Header="Birth Year" Binding="{Binding BirthYear}" Width="100" />
+                <DataGridTextColumn Header="Movies" Binding="{Binding MovieCount}" Width="80" />
+                <DataGridTextColumn Header="Top Movie" Binding="{Binding TopMovie}" Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

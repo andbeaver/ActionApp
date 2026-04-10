@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActionApp.Views"
         mc:Ignorable="d"
-        Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
+
+    <DockPanel>
+        <!-- Top menu -->
+        <Menu DockPanel.Dock="Top">
+        <MenuItem Header="File">
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Home" Command="{Binding NavToHomeCommand}" />
+                <MenuItem Header="Actors" Command="{Binding NavToActorsCommand}" />
+                <MenuItem Header="Directors" Command="{Binding NavToDirectorsCommand}" />
+                <MenuItem Header="Movies" Command="{Binding NavToMoviesCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <!-- Simple navigation buttons (no images/styles) -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8" HorizontalAlignment="Left">
+            <Button Content="Back" Command="{Binding NavBackCommand}" ToolTip="Go back" Margin="0,0,6,0" />
+            <Button Content="Home" Command="{Binding NavToHomeCommand}" ToolTip="Go to Home" Margin="0,0,6,0" />
+            <Button Content="Actors" Command="{Binding NavToActorsCommand}" ToolTip="Browse Actors" Margin="0,0,6,0" />
+            <Button Content="Directors" Command="{Binding NavToDirectorsCommand}" ToolTip="Browse Directors" Margin="0,0,6,0" />
+            <Button Content="Movies" Command="{Binding NavToMoviesCommand}" ToolTip="Browse Movies" />
+        </StackPanel>
+
+        <!-- placeholder for content; the main window will host views -->
+        <Grid />
+    </DockPanel>
+
 </UserControl>
