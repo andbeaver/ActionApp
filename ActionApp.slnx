@@ -1,4 +1,4 @@
 <Solution>
+  <Project Path="../ActionApp_Tests/ActionApp_Tests.csproj" Id="3494bf54-3a89-4edd-b529-a2ad5a57a788" />
   <Project Path="ActionApp.csproj" />
-  <Project Path="ActionAppTests/ActionAppTests.csproj" />
 </Solution>

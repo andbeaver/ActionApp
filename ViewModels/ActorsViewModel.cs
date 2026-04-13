@@ -1,4 +1,5 @@
 ﻿using ActionApp.Data;
+using ActionApp.Models;
 using ActionApp.Models.Generated;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -42,7 +43,7 @@ namespace ActionApp.ViewModels
             _ = LoadActorsAsync();
         }
 
-        private bool FilterActor(object obj)
+        public bool FilterActor(object obj)
         {
             if (obj is not ActorItem item) return false;
             if (string.IsNullOrWhiteSpace(SearchText)) return true;
@@ -121,6 +122,7 @@ namespace ActionApp.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
     }
 
     public class ActorItem
