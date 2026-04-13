@@ -6,11 +6,44 @@
         xmlns:local="clr-namespace:ActionApp.Views"
         xmlns:vm="clr-namespace:ActionApp.ViewModels"
         mc:Ignorable="d">
-    <Grid>
-        <TextBlock Text="Movies Screen"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="48"
-                   FontWeight="Bold"/>
+
+    <Grid Background="{StaticResource LightBgBrush}" Margin="24,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Page title -->
+        <TextBlock Grid.Row="0" Text="Action Movies" Style="{StaticResource PageTitleStyle}"/>
+
+        <!-- Search bar and filter button -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,16">
+            <Grid>
+                <TextBox Width="400"
+                         Style="{StaticResource SearchBoxStyle}"
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Search..." Style="{StaticResource PlaceholderStyle}">
+                    <TextBlock.Visibility>
+                        <Binding Path="SearchText" Converter="{x:Null}" FallbackValue="Visible"/>
+                    </TextBlock.Visibility>
+                </TextBlock>
+            </Grid>
+            <Button Content="Filter / Sort" Style="{StaticResource FilterButtonStyle}" Margin="12,0,0,0"/>
+        </StackPanel>
+
+        <!-- Data grid -->
+        <DataGrid Grid.Row="2"
+                  ItemsSource="{Binding MoviesView}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding PrimaryTitle}" Width="2*"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding StartYear}" Width="100"/>
+                <DataGridTextColumn Header="Rating" Binding="{Binding AverageRating}" Width="100"/>
+                <DataGridTextColumn Header="Duration" Binding="{Binding RuntimeMinutes}" Width="130"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

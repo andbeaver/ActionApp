@@ -4,13 +4,104 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ActionApp.Views"
-        xmlns:vm="clr-namespace:ActionApp.ViewModels" 
+        xmlns:vm="clr-namespace:ActionApp.ViewModels"
         mc:Ignorable="d">
-    <Grid>
-        <TextBlock Text="Home Screen"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="48"
-                   FontWeight="Bold"/>
+
+    <Grid Background="{StaticResource LightBgBrush}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="700">
+
+            <!-- Hero section -->
+            <Border Background="{StaticResource PrimaryBrush}" Padding="40,36" Margin="0,0,0,32">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Action Movies Database"
+                               Foreground="White"
+                               FontSize="32"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,10"/>
+                    <TextBlock Text="Browse action films, actors, and directors"
+                               Foreground="#94A3B8"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,24"/>
+                    <Button Content="Browse Movies"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Center"
+                            Command="{Binding DataContext.NavToMoviesCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Category cards -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Movies card -->
+                <Button Grid.Column="0" Cursor="Hand"
+                        Command="{Binding DataContext.NavToMoviesCommand, RelativeSource={RelativeSource AncestorType=Window}}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Padding" Value="20,28"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="Movies" FontSize="18" FontWeight="Bold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" HorizontalAlignment="Center" Margin="0,0,0,6"/>
+                        <TextBlock Text="Browse action films" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Actors card -->
+                <Button Grid.Column="2" Cursor="Hand"
+                        Command="{Binding DataContext.NavToActorsCommand, RelativeSource={RelativeSource AncestorType=Window}}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Padding" Value="20,28"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="Actors" FontSize="18" FontWeight="Bold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" HorizontalAlignment="Center" Margin="0,0,0,6"/>
+                        <TextBlock Text="Explore actors" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Directors card -->
+                <Button Grid.Column="4" Cursor="Hand"
+                        Command="{Binding DataContext.NavToDirectorsCommand, RelativeSource={RelativeSource AncestorType=Window}}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource BaseButtonStyle}">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="Padding" Value="20,28"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </Button.Style>
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="Directors" FontSize="18" FontWeight="Bold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" HorizontalAlignment="Center" Margin="0,0,0,6"/>
+                        <TextBlock Text="Discover directors" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>

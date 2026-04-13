@@ -7,31 +7,35 @@
         mc:Ignorable="d"
         DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
 
-    <DockPanel>
-        <!-- Top menu -->
-        <Menu DockPanel.Dock="Top">
-        <MenuItem Header="File">
-                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
-            </MenuItem>
-            <MenuItem Header="View">
-                <MenuItem Header="Home" Command="{Binding NavToHomeCommand}" />
-                <MenuItem Header="Actors" Command="{Binding NavToActorsCommand}" />
-                <MenuItem Header="Directors" Command="{Binding NavToDirectorsCommand}" />
-                <MenuItem Header="Movies" Command="{Binding NavToMoviesCommand}" />
-            </MenuItem>
-        </Menu>
+    <Border Background="{StaticResource PrimaryBrush}" Padding="16,0">
+        <DockPanel Height="52">
 
-        <!-- Simple navigation buttons (no images/styles) -->
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="8" HorizontalAlignment="Left">
-            <Button Content="Back" Command="{Binding NavBackCommand}" ToolTip="Go back" Margin="0,0,6,0" />
-            <Button Content="Home" Command="{Binding NavToHomeCommand}" ToolTip="Go to Home" Margin="0,0,6,0" />
-            <Button Content="Actors" Command="{Binding NavToActorsCommand}" ToolTip="Browse Actors" Margin="0,0,6,0" />
-            <Button Content="Directors" Command="{Binding NavToDirectorsCommand}" ToolTip="Browse Directors" Margin="0,0,6,0" />
-            <Button Content="Movies" Command="{Binding NavToMoviesCommand}" ToolTip="Browse Movies" />
-        </StackPanel>
+            <!-- App title -->
+            <TextBlock Text="Action Movies DB"
+                       Foreground="White"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       DockPanel.Dock="Left"/>
 
-        <!-- placeholder for content; the main window will host views -->
-        <Grid />
-    </DockPanel>
+            <!-- Exit button -->
+            <Button Content="Exit"
+                    Command="{Binding ExitCommand}"
+                    Style="{StaticResource NavButtonStyle}"
+                    DockPanel.Dock="Right"
+                    Foreground="#EF4444"/>
+
+            <!-- Nav buttons -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button Content="Home" Command="{Binding NavToHomeCommand}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Movies" Command="{Binding NavToMoviesCommand}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Actors" Command="{Binding NavToActorsCommand}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Content="Directors" Command="{Binding NavToDirectorsCommand}" Style="{StaticResource NavButtonStyle}"/>
+            </StackPanel>
+
+        </DockPanel>
+    </Border>
 
 </UserControl>

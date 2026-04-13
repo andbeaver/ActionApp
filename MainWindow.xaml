@@ -7,20 +7,21 @@
         xmlns:local="clr-namespace:ActionApp"
         xmlns:views="clr-namespace:ActionApp.Views"
         mc:Ignorable="d"
-        Background="white"
-        Title="ActionApp" Height="450" Width="800">
+        Background="{StaticResource LightBgBrush}"
+        Title="Action Movies DB" Height="680" Width="1050"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Menu Section -->
+        <!-- Nav bar -->
         <Border Grid.Row="0">
             <views:MainMenu />
         </Border>
 
-        <!-- App Content Section -->
+        <!-- Page content -->
         <Border Grid.Row="1">
             <ContentControl Content="{Binding CurrentViewModel}" />
         </Border>
