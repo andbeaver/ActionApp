@@ -3,55 +3,51 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using ActionApp.Models;
-using ActionApp.ViewModels;
 
 namespace ActionApp_Tests
 {
-
-    [TestClass]
     public class ActorsViewModelTests
     {
         private ActorsViewModel _viewModel;
 
-        [TestInitialize]
-        public void Setup()
+        public ActorsViewModelTests()
         {
             _viewModel = new ActorsViewModel();
         }
 
-        [TestMethod]
+        [Fact]
         public void Constructor_InitializesCollections()
         {
             // Arrange & Act
             var viewModel = new ActorsViewModel();
 
             // Assert
-            Assert.IsNotNull(viewModel.Actors);
-            Assert.IsNotNull(viewModel.ActorsView);
-            Assert.AreEqual(0, viewModel.Actors.Count);
-            Assert.IsTrue(viewModel.ActorsView.CanFilter);
+            Assert.NotNull(viewModel.Actors);
+            Assert.NotNull(viewModel.ActorsView);
+            Assert.Empty(viewModel.Actors);
+            Assert.True(viewModel.ActorsView.CanFilter);
         }
 
-        [TestMethod]
+        [Fact]
         public void SearchText_InitializesEmpty()
         {
             // Assert
-            Assert.AreEqual(string.Empty, _viewModel.SearchText);
+            Assert.Equal(string.Empty, _viewModel.SearchText);
         }
 
-        [TestMethod]
+        [Fact]
         public void SearchText_SetValue_UpdatesProperty()
         {
             // Act
             _viewModel.SearchText = "Tom";
 
             // Assert
-            Assert.AreEqual("Tom", _viewModel.SearchText);
+            Assert.Equal("Tom", _viewModel.SearchText);
         }
 
-        [TestMethod]
+        [Fact]
         public void SearchText_SetValue_RaisesPropertyChangedEvent()
         {
             // Arrange
@@ -71,11 +67,11 @@ namespace ActionApp_Tests
             _viewModel.SearchText = "Johnny";
 
             // Assert
-            Assert.IsTrue(propertyChangedRaised);
-            Assert.AreEqual(nameof(ActorsViewModel.SearchText), changedPropertyName);
+            Assert.True(propertyChangedRaised);
+            Assert.Equal(nameof(ActorsViewModel.SearchText), changedPropertyName);
         }
 
-        [TestMethod]
+        [Fact]
         public void SearchText_SetSameValue_DoesNotRaiseEvent()
         {
             // Arrange
@@ -92,30 +88,30 @@ namespace ActionApp_Tests
             _viewModel.SearchText = "Initial";
 
             // Assert
-            Assert.IsFalse(eventRaised);
+            Assert.False(eventRaised);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithNullObject_ReturnsFalse()
         {
             // Act
             var result = _viewModel.FilterActor(null);
 
             // Assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithNonActorItem_ReturnsFalse()
         {
             // Act
             var result = _viewModel.FilterActor("not an actor");
 
             // Assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithEmptySearchText_ReturnsTrue()
         {
             // Arrange
@@ -126,10 +122,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithWhitespaceSearchText_ReturnsTrue()
         {
             // Arrange
@@ -140,10 +136,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithMatchingName_ReturnsTrue()
         {
             // Arrange
@@ -154,10 +150,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithMatchingNameCaseInsensitive_ReturnsTrue()
         {
             // Arrange
@@ -168,10 +164,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithPartialMatchLastName_ReturnsTrue()
         {
             // Arrange
@@ -182,10 +178,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithNonMatchingName_ReturnsFalse()
         {
             // Arrange
@@ -196,10 +192,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithNullActorName_ReturnsTrue()
         {
             // Arrange
@@ -210,10 +206,10 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsTrue(result);
+            Assert.True(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void FilterActor_WithNullActorNameAndSearchText_ReturnsFalse()
         {
             // Arrange
@@ -224,17 +220,17 @@ namespace ActionApp_Tests
             var result = _viewModel.FilterActor(actor);
 
             // Assert
-            Assert.IsFalse(result);
+            Assert.False(result);
         }
 
-        [TestMethod]
+        [Fact]
         public void ActorsCollection_ImplementsObservableCollection()
         {
             // Assert
-            Assert.IsInstanceOfType(_viewModel.Actors, typeof(ObservableCollection<ActionApp.ViewModels.ActorItem>));
+            Assert.IsType<ObservableCollection<ActionApp.ViewModels.ActorItem>>(_viewModel.Actors);
         }
 
-        [TestMethod]
+        [Fact]
         public void ActorItem_HasRequiredProperties()
         {
             // Arrange
@@ -248,21 +244,21 @@ namespace ActionApp_Tests
             };
 
             // Assert
-            Assert.AreEqual("nm0000001", actor.NameId);
-            Assert.AreEqual("Tom Hanks", actor.PrimaryName);
-            Assert.AreEqual(1956, actor.BirthYear);
-            Assert.AreEqual(100, actor.MovieCount);
-            Assert.AreEqual("Forrest Gump", actor.TopMovie);
+            Assert.Equal("nm0000001", actor.NameId);
+            Assert.Equal("Tom Hanks", actor.PrimaryName);
+            Assert.Equal(1956, actor.BirthYear);
+            Assert.Equal(100, actor.MovieCount);
+            Assert.Equal("Forrest Gump", actor.TopMovie);
         }
 
-        [TestMethod]
+        [Fact]
         public void ActorItem_NameIdDefaultsToEmpty()
         {
             // Act
             var actor = new ActionApp.ViewModels.ActorItem();
 
             // Assert
-            Assert.AreEqual(string.Empty, actor.NameId);
+            Assert.Equal(string.Empty, actor.NameId);
         }
     }
 }
