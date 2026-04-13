@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ActionApp_Tests/bin/Debug/net10.0-windows
+/ActionApp_Tests/obj/Debug/net10.0-windows

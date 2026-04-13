@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp_Tests\\ActionApp_Tests.csproj": {}
+    "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp_Tests\\ActionApp_Tests.csproj": {}
   },
   "projects": {
-    "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp\\ActionApp.csproj": {
+    "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp\\ActionApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp\\ActionApp.csproj",
+        "projectUniqueName": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp\\ActionApp.csproj",
         "projectName": "ActionApp",
-        "projectPath": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp\\ActionApp.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp\\obj\\",
+        "projectPath": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp\\ActionApp.csproj",
+        "packagesPath": "C:\\Users\\CAnne\\.nuget\\packages\\",
+        "outputPath": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CAnne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -375,37 +374,36 @@
         }
       }
     },
-    "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp_Tests\\ActionApp_Tests.csproj": {
+    "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp_Tests\\ActionApp_Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp_Tests\\ActionApp_Tests.csproj",
+        "projectUniqueName": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp_Tests\\ActionApp_Tests.csproj",
         "projectName": "ActionApp_Tests",
-        "projectPath": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp_Tests\\ActionApp_Tests.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp_Tests\\obj\\",
+        "projectPath": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp_Tests\\ActionApp_Tests.csproj",
+        "packagesPath": "C:\\Users\\CAnne\\.nuget\\packages\\",
+        "outputPath": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp_Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CAnne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net10.0-windows10.0.26100.1"
+          "net10.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net10.0-windows10.0.26100.1": {
-            "targetAlias": "net10.0-windows10.0.26100.1",
+          "net10.0-windows7.0": {
+            "targetAlias": "net10.0-windows",
             "projectReferences": {
-              "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp\\ActionApp.csproj": {
-                "projectPath": "C:\\School\\_Semester 4\\C Sharp\\Final Assignment\\ActionApp\\ActionApp.csproj"
+              "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp\\ActionApp.csproj": {
+                "projectPath": "C:\\WinterSemester\\CSharp\\FinalRepov2\\ActionApp\\ActionApp.csproj"
               }
             }
           }
@@ -423,12 +421,20 @@
         "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
-        "net10.0-windows10.0.26100.1": {
-          "targetAlias": "net10.0-windows10.0.26100.1",
+        "net10.0-windows7.0": {
+          "targetAlias": "net10.0-windows",
           "dependencies": {
-            "MSTest": {
+            "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[4.0.2, )"
+              "version": "[3.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.9.0, )"
             }
           },
           "imports": [
@@ -442,17 +448,8 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.26100.57, 10.0.26100.57]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.Windows.SDK.NET.Ref.CsWinRT3.Windows": {
               "privateAssets": "all"
             }
           },
