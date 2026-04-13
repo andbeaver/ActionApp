@@ -49,7 +49,7 @@ namespace ActionApp.ViewModels
             _ = LoadDirectorsAsync();
         }
 
-        private bool FilterDirector(object obj)
+        public bool FilterDirector(object obj)
         {
             if (obj is not DirectorItem item) return false;
             if (string.IsNullOrWhiteSpace(SearchText)) return true;

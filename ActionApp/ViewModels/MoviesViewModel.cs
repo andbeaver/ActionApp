@@ -48,7 +48,7 @@ namespace ActionApp.ViewModels
             _ = LoadMoviesAsync();
         }
 
-        private bool FilterMovie(object obj)
+        public bool FilterMovie(object obj)
         {
             if (obj is not MovieItem item) return false;
             if (string.IsNullOrWhiteSpace(SearchText)) return true;
