@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="ActionApp.Views.DirectorsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:ActionApp.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:DirectorsViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Search:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox Width="300"
+                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding DirectorsView}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Director"
+                                    Binding="{Binding Name}"
+                                    Width="2*" />
+                <DataGridTextColumn Header="Birth Year"
+                                    Binding="{Binding BirthYear}"
+                                    Width="100"/>
+                <DataGridTextColumn Header="Movies"
+                                    Binding="{Binding MovieCount}"
+                                    Width="80"/>
+                <DataGridTextColumn Header="Top Movie"
+                                    Binding="{Binding TopMovie}"
+                                    Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -22,6 +22,7 @@ namespace ActionApp.ViewModels
                 OnPropertyChanged(nameof(CurrentViewModel));
             }
         }
+
         public MainViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
