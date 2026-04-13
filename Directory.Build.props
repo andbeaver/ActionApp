@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Disable Windows SDK automatic integration for WinRT tooling -->
+    <IncludeWindowsSDKRefFrameworkReferences>false</IncludeWindowsSDKRefFrameworkReferences>
+    <_TargetPlatformVersionUsesCsWinRT3>false</_TargetPlatformVersionUsesCsWinRT3>
+  </PropertyGroup>
+</Project>
