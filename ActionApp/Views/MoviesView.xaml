@@ -7,35 +7,46 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
-
     <UserControl.DataContext>
         <vm:MoviesViewModel />
     </UserControl.DataContext>
 
-    <Grid Margin="8">
+    <Grid Background="{StaticResource LightBgBrush}" Margin="24,20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-            <TextBlock Text="Search:" VerticalAlignment="Center" Margin="0,0,8,0" />
-            <TextBox Width="300"
-                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+        <!-- Page title -->
+        <TextBlock Grid.Row="0" Text="Action Movies" Style="{StaticResource PageTitleStyle}"/>
+
+        <!-- Search bar and filter button -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,16">
+            <Grid>
+                <TextBox Width="400"
+                         Style="{StaticResource SearchBoxStyle}"
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="Search..." Style="{StaticResource PlaceholderStyle}">
+                    <TextBlock.Visibility>
+                        <Binding Path="SearchText" Converter="{x:Null}" FallbackValue="Visible"/>
+                    </TextBlock.Visibility>
+                </TextBlock>
+            </Grid>
+            <Button Content="Filter / Sort" Style="{StaticResource FilterButtonStyle}" Margin="12,0,0,0"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1"
+        <!-- Data grid -->
+        <DataGrid Grid.Row="2"
                   ItemsSource="{Binding MoviesView}"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
                   CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="2*" />
-                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="80" />
-                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" Width="80" />
-                <DataGridTextColumn Header="Duration (min)"
-                                    Binding="{Binding DurationMinutes}"
-                                    Width="120" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="2*"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="100"/>
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" Width="100"/>
+                <DataGridTextColumn Header="Duration (min)" Binding="{Binding DurationMinutes}" Width="130"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
