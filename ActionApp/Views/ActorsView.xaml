@@ -18,7 +18,7 @@
         <!-- Page title -->
         <TextBlock Grid.Row="0" Text="Actors" Style="{StaticResource PageTitleStyle}"/>
 
-        <!-- Search bar and filter button -->
+        <!-- Search bar-->
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,16">
             <Grid>
                 <TextBox Width="400"
@@ -30,7 +30,6 @@
                     </TextBlock.Visibility>
                 </TextBlock>
             </Grid>
-            <Button Content="Filter / Sort" Style="{StaticResource FilterButtonStyle}" Margin="12,0,0,0"/>
         </StackPanel>
 
         <!-- Data grid -->
